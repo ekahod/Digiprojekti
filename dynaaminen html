@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Kysely</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+</head>
+    
+<body>
+    
+    <div id="lomake"></div>
+      
+		<!-- Jquery -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>     
+    
+    <!-- lomake -->
+    <script>    
+    $.getJSON("kysymykset.json", function( data ) { 
+        
+        var items = [];
+        
+        items.push("<h3> "+ data.Otsikko + "</h3>");
+        
+        var kysymykset = data.Kysymykset;
+        
+        $.each( kysymykset, function( key, d ) {
+        items.push( "<h3>" + d.Kysymys + "</h3>" );
+                  
+        //items.push("<textarea>"); 
+})      
+        $("#lomake").append(items.join(""));
+});
+    
+    </script>
+    
+ </body>
+</html>

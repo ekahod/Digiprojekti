@@ -1,0 +1,10 @@
+{"Otsikko":"Koronaviruksen vaikutus opiskeluun",
+"Kysymykset":[
+{"Kysymys":"Onko koronatilanne vaikuttanut opiskeluusi?","id":"k1"},
+{"Kysymys":"Oletko joutunut muuttamaan opiskelusuunnitelmia esim. jättämään jonkun kurssin pois?","id":"k2"},
+{"Kysymys":"Viivästyvätkö opinnot koronatilanteen takia?","id":"k3"},
+{"Kysymys":"Oletko tyytyväinen etäopiskeluun?","id":"k4"},
+{"Kysymys":"Mitä haasteita koet etäopiskelussa?","id":"k5"},
+{"Kysymys":"Mitä positiivista koet etäopiskelussa?","id":"k6"},
+{"Kysymys":"Miten etäopiskelua voisi mielestäsi kehittää?","id":"k7"}]
+}

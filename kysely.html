@@ -1,70 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fi">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Kysely</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-    
-</head>
-    
-<body>
+  <body>
     <form>
-        <div id="lomake">
-         
-        </div>
-    
-    
+      <div id="lomake"></div>
     </form>
-      
-		<!-- Jquery -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-     
-    
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <script>
-    
-        var lomakekentta = [];
-        
-        $.getJSON("kysymykset.json", function( data ) {
-    
+      var lomakekentta = [];
+
+      $.getJSON("kysymykset.json", function (data) {
         var items = [];
-        
-        items.push("<h2> "+ data.otsikko + "</h2>");
-        items.push("<h3> "+ data.prologi + "</h3>");
-        
+
+        items.push("<h1> " + data.otsikko + "</h1>");
+        items.push("<p> " + data.prologi + "</p>");
+
         var kysymykset = data.kysymykset;
-        
-        $.each( kysymykset, function( key, d ) {
-            lomakekentta.push(d.id);
-            
-            items.push("<form>");
-            
-        if (d.tyyppi === "text") {
-                    items.push("<label><h3>" + d.kysymys + "</h3></label>");
-                    items.push("<input type=textarea><br><br>");
-                } else if (d.tyyppi === "radio" || d.tyyppi === "checkbox") {
-                    items.push("<label><h3>" + d.kysymys + "</h3></label>");
-                    for (i = 0; i < d.value.length; i++) {
-                        items.push("<input type=" + d.tyyppi + " id= " + d.id + " name=" + d.id + " value=" + d.value[i] + ">" + d.value[i] + "<br>");
-                    }
-                    
-                //items.push("<input type=text>");
 
-                items.push("</form>");
+        $.each(kysymykset, function (key, d) {
+          lomakekentta.push(d.id);
 
-                }
+          if (d.tyyppi === "text") {
+            items.push("<label><h2>" + d.kysymys + "</h2></label>");
+            items.push('<input type="text"/><br><br>');
+          } else if (d.tyyppi === "radio" || d.tyyppi === "checkbox") {
+            items.push("<h2>" + d.kysymys + "</h2>");
 
-            })
+            var value = d.value;
+            $.each(value, function (i, v) {
+                items.push('<input type="' + d.tyyppi + '" name="' + d.id + '" id="' + v.valueId + '" value="' + v.option + '"/>' );
+                items.push('<label for="' + v.valueId + '">' + v.option + '</label><br/>');
+            });
+          }
+        }); 
 
-            items.push("<button>Lähetä</button>");
-            $("#lomake").append(items.join(""));
-        });
-
- 
-    
+        items.push("<button>Lähetä</button>");
+        $("#lomake").append(items.join(""));
+      });
     </script>
-    
- </body>
+  </body>
 </html>

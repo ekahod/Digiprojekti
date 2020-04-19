@@ -1,0 +1,59 @@
+html {
+    font-size: 20px;
+}
+body {
+    font-family: 'Muli', sans-serif;
+    color: #ffffff;
+    background-color:  #0f97bd;
+}
+.form-wrapper {
+    max-width: 860px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+h1 {
+font-size: 2.5rem;
+}
+p {
+    line-height: 1.5rem;
+}
+.kysymykset {
+    width: 100%;
+}
+input.text-input {
+    height: 40px;
+    border: 0;
+    padding: 0 1rem;
+    width: 100%;
+    border-radius: 999px;
+    font-family: 'Muli', sans-serif;
+    font-size: 1rem;
+    color: #09262e;
+}
+.kysymys-wrapper.multi-wrapper {
+    padding-top: 2rem;
+}
+.kysymys-wrapper:last-child {
+    padding-top: 2rem;
+}
+.btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.laheta-btn {
+    border-radius: 999px;
+    border: 0;
+    border: 3px solid #ffffff;
+    height: 55px;
+    padding: 0 3rem;
+    margin-top: 5rem;
+    font-family: 'Muli', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #0f97bd;
+    cursor: pointer;
+}

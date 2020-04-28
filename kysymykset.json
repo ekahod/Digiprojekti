@@ -1,36 +1,184 @@
-{"kyselyn_id":"korona",
-"otsikko":"Koronaviruksen vaikutus opiskeluun",
-"prologi":"Haaga-Helian ammattikorkeakoulun digiprojekti -kurssin opiskelijat käyttävät vastauksia kurssityöhön. Kyselyn tavoitteena on saada selville, kuinka koronavirus on vaikuttanut opiskelijoiden elämään ja miten etäopiskelua voisi kehittää.",
-"kysymykset":
-[
-{"kysymys":"1. Onko koronatilanne vaikuttanut opiskeluusi?","id":"k1",
-"tyyppi":"radio",
-"value":["Ei juuri lainkaan","Vähän","Jonkin verran","Paljon","Hyvin paljon"]},
-{"kysymys":"2. Oletko joutunut muuttamaan opiskelusuunnitelmia esim. jättämään jonkun kurssin pois?","id":"k2",
-"tyyppi":"radio",
-"value":["Kyllä","Ei"]},
-{"kysymys":"Jos vastasit kyllä, niin miten?","id":"k3",
-"tyyppi":"text",
-"value":[]},
-{"kysymys":"3. Viivästyvätkö opinnot koronatilanteen takia?","id":"k4",
-"tyyppi":"radio",
-"value":["Kyllä","Ei"]},
-{"kysymys":"4. Oletko tyytyväinen etäopiskeluun?","id":"k5",
-"tyyppi":"radio",
-"value":["Erittäin tyytyväinen","Jokseenkin tyytyväinen","Ei tyytyväinen eikä tyytymätön","Jokseenkin tyytymätön","Erittäin tyytymätön"]},
-{"kysymys":"5. Mitä haasteita koet etäopiskelussa?","id":"k6",
-"tyyppi":"checkbox",
-"value":["Aikataulun suunnittelu","Perhetilanne","Motivaation puute","Sosiaalisen elämän puute","Ergonomia","Työvälineet","Ei mitään","Jotain muuta, mitä?"]},
-{"kysymys":"","id":"k7",
-"tyyppi":"text",
-"value":[]},
-{"kysymys":"6. Mitä positiivista koet etäopiskelussa?","id":"k8",
-"tyyppi":"checkbox",
-"value":["Enemmän omaa aikaa","Aikataulun suunnittelu","Rahan säästö","Motivaation lisääntyminen","Parempi ergonomia","Paremmat työvälineet","Ei mitään","Jotain muuta, mitä?"]},
-{"kysymys":"","id":"k9",
-"tyyppi":"text",
-"value":[]},
-{"kysymys":"7. Miten etäopiskelua voisi mielestäsi kehittää?","id":"k10",
-"tyyppi":"text",
-"value":[]}
- ]}
+{
+  "kyselyn_id": "korona",
+  "otsikko": "Koronaviruksen vaikutus opiskeluun",
+  "prologi": "Haaga-Helian ammattikorkeakoulun digiprojekti -kurssin opiskelijat käyttävät vastauksia kurssityöhön. Kyselyn tavoitteena on saada selville, kuinka koronavirus on vaikuttanut opiskelijoiden elämään ja miten etäopiskelua voisi kehittää.",
+  "kysymykset": [
+    {
+      "kysymys": "1. Onko koronatilanne vaikuttanut opiskeluusi?",
+      "id": "k1",
+      "tyyppi": "radio",
+      "value": [
+        {
+          "option": "Ei lainkaan",
+          "valueId": "k1opt1"
+        },
+        {
+          "option": "Vähän",
+          "valueId": "k1opt2"
+        },
+        {
+          "option": "Jonkin verran",
+          "valueId": "k1opt3"
+        },
+        {
+          "option": "Paljon",
+          "valueId": "k1opt4"
+        },
+        {
+          "option": "Hyvin paljon",
+          "valueId": "k1opt5"
+        }
+      ]
+    },
+    {
+      "kysymys": "2. Oletko joutunut muuttamaan opiskelusuunnitelmia esim. jättämään jonkun kurssin pois?",
+      "id": "k2",
+      "tyyppi": "radio",
+      "value": [
+        {
+          "option": "Kyllä",
+          "valueId": "k2opt1"
+        },
+        {
+          "option": "Ei",
+          "valueId": "k2opt2"
+        }
+      ]
+    },
+    {
+      "kysymys": "Jos vastasit kyllä, niin miten?",
+      "id": "k2kylla",
+      "tyyppi": "text",
+      "value": []
+    },
+    {
+      "kysymys": "3. Viivästyvätkö opinnot koronatilanteen takia?",
+      "id": "k3",
+      "tyyppi": "radio",
+      "value": [
+        {
+          "option": "Kyllä",
+          "valueId": "k3opt1"
+        },
+        {
+          "option": "Ei",
+          "valueId": "k3opt2"
+        }
+      ]
+    },
+    {
+      "kysymys": "4. Oletko tyytyväinen etäopiskeluun?",
+      "id": "k4",
+      "tyyppi": "radio",
+      "value": [
+        {
+          "option": "Erittäin tyytymätön",
+          "valueId": "k4opt1"
+        },
+        {
+          "option": "Jokseenkin tyytymätön",
+          "valueId": "k4opt2"
+        },
+        {
+          "option": "En tyytyväinen enkä tyytymätön",
+          "valueId": "k4opt3"
+        },
+        {
+          "option": "Jokseenkin tyytyväinen",
+          "valueId": "k4opt4"
+        },
+        {
+          "option": "Erittäin tyytyväinen",
+          "valueId": "k4opt5"
+        }
+      ]
+    },
+    {
+      "kysymys": "5. Mitä haasteita koet etäopiskelussa?",
+      "id": "k5",
+      "tyyppi": "checkbox",
+      "value": [
+        {
+          "option": "Aikataulun suunnittelu",
+          "valueId": "k5opt1"
+        },
+        {
+          "option": "Perhetilanne",
+          "valueId": "k5opt2"
+        },
+        {
+          "option": "Motivaation puute",
+          "valueId": "k5opt3"
+        },
+        {
+          "option": "Sosiaalisen elämän puute",
+          "valueId": "k5opt4"
+        },
+        {
+          "option": "Ergonomia",
+          "valueId": "k5opt5"
+        },
+        {
+          "option": "Työvälineet",
+          "valueId": "k5opt6"
+        },
+        {
+          "option": "En mitään",
+          "valueId": "k5opt7"
+        },
+        {
+          "option": "Jotain muuta, mitä?",
+          "valueId": "k5opt8"
+        }
+      ]
+    },
+    { "kysymys": "", "id": "k5lisaa", "tyyppi": "text", "value": [] },
+    {
+      "kysymys": "6. Mitä positiivista koet etäopiskelussa?",
+      "id": "k6",
+      "tyyppi": "checkbox",
+      "value": [
+        {
+          "option": "Aikataulun suunnittelu",
+          "valueId": "k6opt1"
+        },
+        {
+          "option": "Enemmän omaa aikaa",
+          "valueId": "k6opt2"
+        },
+        {
+          "option": "Rahan säästö",
+          "valueId": "k6opt3"
+        },
+
+        {
+          "option": "Motivaation lisääntyminen",
+          "valueId": "k6opt4"
+        },
+        {
+          "option": "Parempi ergonomia",
+          "valueId": "k6opt5"
+        },
+        {
+          "option": "Paremmat työvälineet",
+          "valueId": "k6opt6"
+        },
+        {
+          "option": "En mitään",
+          "valueId": "k6opt7"
+        },
+        {
+          "option": "Jotain muuta, mitä?",
+          "valueId": "k6opt8"
+        }
+      ]
+    },
+    { "kysymys": "", "id": "k6lisaa", "tyyppi": "text", "value": [] },
+    {
+      "kysymys": "7. Miten etäopiskelua voisi mielestäsi kehittää?",
+      "id": "k7",
+      "tyyppi": "text",
+      "value": []
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+html {
+    font-size: 20px;
+}
+body {
+    font-family: 'Muli', sans-serif;
+    color: #ffffff;
+    background-color:  #0f97bd;
+}
+.form-wrapper {
+    max-width: 860px;
+    width: 100%;
+    margin: 2rem auto;
+   /* padding: 2rem;*/
+}
+h1 {
+font-size: 2.5rem;
+}
+p {
+    line-height: 1.5rem;
+}
+#lomake {
+    padding: 0 1rem 1rem 1rem;
+}
+.kysymykset {
+    width: 100%;
+}
+
+.kysymys-wrapper {
+    width: 100%;
+}
+
+.kysymys-wrapper.multi-wrapper {
+    padding-top: 2rem;
+}
+.kysymys-wrapper:last-child {
+    padding-top: 2rem;
+}
+
+input.text-input {
+    height: 40px;
+    border: 0;
+    width: 100%;
+    border-radius: 999px;
+    font-family: 'Muli', sans-serif;
+    font-size: 1rem;
+    color: #09262e;
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+.items-wrapper {
+    padding: 0.3rem;
+}
+
+.option-label {
+    cursor: pointer;
+}
+
+/*radio button styles*/
+
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+input[type="radio"] + .option-label:before {
+    content: '';
+    background: #fff;
+    border-radius: 100%;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    margin-right: 1em;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+}
+input[type="radio"]:checked + .option-label:before {
+    background-color: #064f63;
+    box-shadow: inset 0 0 0 4px #fff;
+}
+input[type="radio"]:focus + .option-label:before {
+    outline: none;
+    border-color: #0f97bd;
+}
+input[type="radio"] + .option-label:empty:before {
+    margin-right: 0;
+}
+/*radio button styles end*/
+
+
+/*checkbox styles start*/
+
+input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+input[type="checkbox"] + .option-label:before {
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    content: '';
+    font-size: 1em;
+    background: #fff;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+  padding:0.2rem;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+  font-weight: 600;
+}
+input[type="checkbox"]:checked + .option-label:before {
+    content: "\f00d";
+    color: #064f63;
+}
+input[type="checkbox"]:focus + .option-label:before {
+    outline: none;
+    border-color: #0f97bd;
+}
+input[type="checkbox"] + .option-label:empty:before {
+    margin-right: 0;
+}
+
+/*checkbox styles end*/
+
+
+.btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.laheta-btn {
+    border-radius: 999px;
+    border: 0;
+    border: 3px solid #ffffff;
+    height: 55px;
+    padding: 0 3rem;
+    margin-top: 5rem;
+    font-family: 'Muli', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #0f97bd;
+    cursor: pointer;
+}

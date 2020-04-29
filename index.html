@@ -81,13 +81,12 @@
         });
         items.push("</div>");
         items.push(
-          '<div class="btn-wrapper"> <button class="laheta-btn">Lähetä</button> </div>'
+          '<div class="btn-wrapper"> <a onclick="send();" class="laheta-btn">Lähetä</a> </div>'
         );
         $("#lomake").append(items.join(""));
       });
 
       function send() {
-        //muuttuja, jota käytetään for elementin looppaamiseen eli form tagin sisällä olevien elementtien määrä
         var formLength = document.kysely.elements.length;
         var formValues = [];
 
@@ -96,29 +95,27 @@
           var inputId = kysely.elements[i].id;
           var inputName = kysely.elements[i].name;
           var selectedRadio;
-          var selectedCheckboxes = [];
+          selectedCheckboxes = [];
 
           if (tyyppi === "text") {
             var textInputValue = document.getElementById(inputId).value;
-            formValues.push("kysymys: " + inputId + ", vastaus: " + textInputValue + ",")
+            formValues.push("kysymys: " + inputId + ", vastaus: " + textInputValue);
           } else if (tyyppi === "radio") {
-            var radios = document.getElementsByName(inputName);
-            for (var x = 0, length = radios.length; x < length; x++) {
-              if (radios[x].checked) {
-                selectedRadio = radios[x].value;
-                formValues.push("kysymys: " + inputName + ", vastaus: " + selectedRadio + "," )
-              }
+            //en saanut looppia toimimaan, vaan se tulosti vastaukset niin monta kertaa kuin vaihtoehtoja on, miten jatketaan? 
+            if (kysely.elements[i].checked == true ) {
+              selectedRadio = kysely.elements[i].value;
+              formValues.push("kysymys: " + inputName + ", vastaus: " + selectedRadio); 
             }
           } else if (tyyppi === "checkbox") {
-            var checkboxes = document.getElementsByName(inputName);
-            for (var y = 0, length = checkboxes.length; y < length; y++) {
-              if (checkboxes[y].checked) {
-                selectedCheckboxes.push(checkboxes[y].value);
-              }
+            if(kysely.elements[i].checked == true) {
+              selectedCheckboxes.push(kysely.elements[i].value);
+              formValues.push("kysymys: " + inputName + ", vastaus: " + selectedCheckboxes)
             }
+
           }
         }
-        console.log(formValues);
+  
+       console.log(formValues);
       }
     </script>
   </body>

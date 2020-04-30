@@ -85,38 +85,76 @@
         );
         $("#lomake").append(items.join(""));
       });
-
-      function send() {
-        var formLength = document.kysely.elements.length;
-        var formValues = [];
-
-        for (i = 0; i < formLength; i++) {
-          var tyyppi = kysely.elements[i].type;
-          var inputId = kysely.elements[i].id;
-          var inputName = kysely.elements[i].name;
-          var selectedRadio;
-          selectedCheckboxes = [];
-
-          if (tyyppi === "text") {
-            var textInputValue = document.getElementById(inputId).value;
-            formValues.push("kysymys: " + inputId + ", vastaus: " + textInputValue);
-          } else if (tyyppi === "radio") {
-            //en saanut looppia toimimaan, vaan se tulosti vastaukset niin monta kertaa kuin vaihtoehtoja on, miten jatketaan? 
-            if (kysely.elements[i].checked == true ) {
-              selectedRadio = kysely.elements[i].value;
-              formValues.push("kysymys: " + inputName + ", vastaus: " + selectedRadio); 
-            }
-          } else if (tyyppi === "checkbox") {
-            if(kysely.elements[i].checked == true) {
-              selectedCheckboxes.push(kysely.elements[i].value);
-              formValues.push("kysymys: " + inputName + ", vastaus: " + selectedCheckboxes)
-            }
-
-          }
-        }
-  
-       console.log(formValues);
-      }
     </script>
+    
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyClmZ-mSUmovq1bZorebSsXcUzqrFaIO0g",
+            authDomain: "koronakysely-2c6de.firebaseapp.com",
+            databaseURL: "https://koronakysely-2c6de.firebaseio.com",
+            projectId: "koronakysely-2c6de",
+            storageBucket: "koronakysely-2c6de.appspot.com",
+            messagingSenderId: "128926206745",
+            appId: "1:128926206745:web:05f157e42cd084dad51388"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.firestore();
+
+        function send() {
+            var formLength = document.kysely.elements.length;
+            var formValues = [];
+
+            for (i = 0; i < formLength; i++) {
+                var tyyppi = kysely.elements[i].type;
+                var inputId = kysely.elements[i].id;
+                var inputName = kysely.elements[i].name;
+                var selectedRadio;
+                selectedCheckboxes = [];
+
+                if (tyyppi === "text") {
+                    var textInputValue = document.getElementById(inputId).value;
+                    formValues.push("kysymys: " + inputId + ", vastaus: " + textInputValue);
+                } else if (tyyppi === "radio") {
+                    //en saanut looppia toimimaan, vaan se tulosti vastaukset niin monta kertaa kuin vaihtoehtoja on, miten jatketaan? 
+                    if (kysely.elements[i].checked == true) {
+                        selectedRadio = kysely.elements[i].value;
+                        formValues.push("kysymys: " + inputName + ", vastaus: " + selectedRadio);
+                    }
+                } else if (tyyppi === "checkbox") {
+                    if (kysely.elements[i].checked == true) {
+                        selectedCheckboxes.push(kysely.elements[i].value);
+                        formValues.push("kysymys: " + inputName + ", vastaus: " + selectedCheckboxes)
+                    }
+
+                }
+            }
+
+            console.log(formValues);
+
+            db.collection("vastaukset")
+                .add({
+                    vastaukset: formValues
+                })
+                .then(function(docRef) {
+                    console.log("document written with ID: ", docRef.id);
+                    location.reload(); //päivittää sivun
+                })
+                .catch(function(error) {
+                    console.error("error adding document: ", error);
+                });
+
+        }
+    </script>
+
   </body>
 </html>

@@ -132,7 +132,7 @@ input[type="checkbox"] + .option-label:empty:before {
     justify-content: center;
     align-items: center;
 }
-button.laheta-btn {
+.laheta-btn {
     border-radius: 999px;
     border: 0;
     border: 3px solid #ffffff;
@@ -145,4 +145,6 @@ button.laheta-btn {
     color: #ffffff;
     background-color: #0f97bd;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }

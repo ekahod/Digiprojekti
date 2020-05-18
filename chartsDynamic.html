@@ -108,7 +108,7 @@
              console.log("Error getting documents: ", error);
          }); */
 
-        // Piirtää toisen ympyrädiagrammin
+        // Piirtää toisen ympyrädiagrammin ja hakee tekstivastaukset vikasta kyssäristä sivulle
         function drawKysymys2Chart() {
             db.collection("vastaukset")
                 .get()
@@ -145,6 +145,27 @@
                         var chart = new google.visualization.PieChart(document.getElementById('kysymys2_chart_div'));
                         chart.draw(data, options);
                     })
+                    //tekstivastausten haku ja näyttäminen sivulla
+                    //ei lähtenyt toimimaan omana funktionaan, joten siksi koodi on tässä
+                    var k7teksti = "";
+                    var k7vastaukset = []
+                    for (var i = 0; i < juttui.length; i++) {
+                        var vast = juttui[i].vastaukset;
+                        for (var y = 0; y < vast.length; y++) {
+                            var str = vast[vast.length - 1];
+                            //var kysymysK7 = str.substr(8, 3);
+                            var tekstivastaus = str.slice(21);
+                            if (tekstivastaus !== " ") {
+                                k7vastaukset.push(tekstivastaus);
+                                break
+                            }
+                        }
+                    }
+                    for (var x = 0; x < k7vastaukset.length; x++) {
+                        k7teksti += k7vastaukset[x] + "<br><br>";
+                    }
+                    document.getElementById("k7otsikko").innerHTML = "Miten etäopiskelua voisi mielestäsi kehittää?";
+                    document.getElementById("k7vastauksia").innerHTML = k7teksti;
                 });
         }       
     </script>
@@ -176,9 +197,12 @@
                 <td>
                     <div id="kysymys2_chart_div" style="border: 1px solid #ccc"></div>
                 </td>
-            </tr>
-           
-        </table>
+            </tr>           
+        </table>       
+        <div id="tekstivastaukset">
+        <h2 id="k7otsikko"></h2>
+        <p id="k7vastauksia"></p>
+        </div>
     </div>
 </body>
 

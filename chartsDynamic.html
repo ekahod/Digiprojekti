@@ -107,14 +107,13 @@
         /* .catch(function(error) {
              console.log("Error getting documents: ", error);
          }); */
-
-        // Piirtää toisen ympyrädiagrammin
+// Piirtää toisen ympyrädiagrammin ja hakee tekstivastaukset vikasta kyssäristä sivulle
         function drawKysymys2Chart() {
             db.collection("vastaukset")
                 .get()
                 .then(function(querySnapshot) {
                     querySnapshot.forEach(function(doc) {
-                        
+
                         var summaKylla = 0
                         var summaEi = 0
 
@@ -145,8 +144,30 @@
                         var chart = new google.visualization.PieChart(document.getElementById('kysymys2_chart_div'));
                         chart.draw(data, options);
                     })
+                    //tekstivastausten haku ja näyttäminen sivulla
+                    //ei lähtenyt toimimaan omana funktionaan, joten siksi koodi on tässä
+                    var testi = "";
+                    var k7vastaukset = []
+                    for (var i = 0; i < juttui.length; i++) {
+                        var vast = juttui[i].vastaukset;
+                        for (var y = 0; y < vast.length; y++) {
+                            var str = vast[vast.length - 1];
+                            //var kysymysK7 = str.substr(8, 3);
+                            var tekstivastaus = str.slice(21);                        
+                            
+                            if (tekstivastaus !== " ") {
+                                k7vastaukset.push(tekstivastaus);
+                                break
+                            }
+                        }
+                    }
+                    for (var x = 0; x < k7vastaukset.length; x++) {
+                        testi += k7vastaukset[x] + "<br><br>";
+                    }
+                    document.getElementById("k7otsikko").innerHTML = "Miten etäopiskelua voisi mielestäsi kehittää?";
+                    document.getElementById("k7vastauksia").innerHTML = testi;
                 });
-        }       
+        }
     </script>
 
     <style>
@@ -158,6 +179,11 @@
         .form-wrapper {
             max-width: 900px;
             width: 100%;
+            margin: auto;
+        }
+         #tekstivastaukset {
+            width: 100%;
+            text-align: justify;
             margin: auto;
         }
     </style>
@@ -176,9 +202,12 @@
                 <td>
                     <div id="kysymys2_chart_div" style="border: 1px solid #ccc"></div>
                 </td>
-            </tr>
-           
-        </table>
+            </tr>           
+        </table>       
+       <div id="tekstivastaukset">
+        <h2 id="k7otsikko"></h2>
+        <p id="k7vastauksia"></p>
+        </div>
     </div>
 </body>
 

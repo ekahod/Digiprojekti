@@ -154,14 +154,23 @@
                 })
                 .then(function(docRef) {
                     console.log("document written with ID: ", docRef.id);
-                    location.reload(); //päivittää sivun
+                    //päivittää sivun
+                    //pois käytöstä, jotta lähettämisen jälkeen käyttäjä pysyy uudessa ikkunassa.
+                    //location.reload(); 
                 })
                 .catch(function(error) {
                     console.error("error adding document: ", error);
                 });
           
-                alert("Kiitos vastauksestasi!");
+            changeSite();
         }
+    </script>
+    
+    <script> 
+        function changeSite() {
+            var myWindow = window.open("", "_self");
+            myWindow.document.write("<h3>Kiitos vastauksesta! Voit sulkea ikkunan.</h3>");
+        }   
     </script>
 
   </body>

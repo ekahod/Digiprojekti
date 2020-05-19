@@ -29,6 +29,12 @@
   <body>
     <div class="form-wrapper">
       <form id="lomake" name="kysely"></form>
+        
+      <div id="thanksMessage" class="thanks-wrapper" style="display: none">
+      <h1>Kiitos vastauksestasi!</h1>
+          
+      <a href="chartsDynamic.html" class="laheta-btn">Tulokset</a> </div>
+
     </div>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -161,14 +167,29 @@
                 .catch(function(error) {
                     console.error("error adding document: ", error);
                 });
+            
+            showHide();
           
-            changeSite();
         }
-      
-        function changeSite() {
-            var myWindow = window.open("_self");
-            myWindow.document.write("<h3>Kiitos vastauksesta! Voit sulkea ikkunan.</h3>");
-        }  
+        
+function showHide() {
+    var formDiv = document.getElementById('lomake');
+    if (formDiv.style.display == 'none') {
+                formDiv.style.display = '';
+            }
+            else {
+                formDiv.style.display = 'none';
+    }
+
+    
+            var div = document.getElementById('thanksMessage');
+            if (div.style.display == 'none') {
+                div.style.display = '';
+            }
+            else {
+                div.style.display = 'none';
+    }
+}
       
     </script>
   </body>

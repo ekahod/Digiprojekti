@@ -6,7 +6,7 @@ body {
     color: #ffffff;
     background-color:  #0f97bd;
 }
-.form-wrapper {
+.form-wrapper, .thanks-wrapper {
     max-width: 860px;
     width: 100%;
     margin: 2rem auto;
@@ -14,6 +14,17 @@ body {
 }
 h1 {
 font-size: 2.3rem;
+}
+.thanks-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.thanks-wrapper h1 {
+    text-align: center;
+}
+a {
+    text-decoration: none;
 }
 p {
     line-height: 1.5rem;
